@@ -6,6 +6,15 @@ import Button from "../Button/Button";
 const OnboardingStep1 = (props) => {
     const [fullName, setFullName] = React.useState('');
     const [displayName, setDisplayName] = React.useState('');
+
+    const handleClick = () => {
+        let data = Object.assign({}, props.onboardingData);
+        data['fullName'] = fullName;
+        data['displayName'] = displayName;
+        props.setOnboardingData(data);
+        props.setOnboardingStep(2);
+    };
+    
     return (
         <Styles.BodyContainer>
             <Styles.Heading>Welcome! First things first...</Styles.Heading>
@@ -24,7 +33,7 @@ const OnboardingStep1 = (props) => {
                 onChange={e => setDisplayName(e.currentTarget.value)}
                 value={displayName}
             />
-            <Button onClick={() => props.setOnboardingStep(2)}>
+            <Button onClick={handleClick}>
                 Create Workspace
             </Button>
         </Styles.BodyContainer>

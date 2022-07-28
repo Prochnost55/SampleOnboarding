@@ -35,7 +35,13 @@ const USAGE_CARDS = [
     }
 ]
 const OnboardingStep1 = (props) => {
-    const [selectedUsage, setSelectedUsage] = React.useState(USAGE_CARDS[0].usageId)
+    const [selectedUsage, setSelectedUsage] = React.useState(USAGE_CARDS[0].usageId);
+    const handleClick = () => {
+        let data = Object.assign({}, props.onboardingData);
+        data['usageType'] = selectedUsage;
+        props.setOnboardingData(data);
+        props.setOnboardingStep(4);
+    };
     return (
         <Styles.BodyContainer>
             <Styles.Heading>How are you planning to use Eden?</Styles.Heading>
@@ -51,7 +57,7 @@ const OnboardingStep1 = (props) => {
                     />
                 ))}
             </Styles.CardContainer>
-            <Button onClick={() => props.setOnboardingStep(4)}>
+            <Button onClick={handleClick}>
                 Create Workspace
             </Button>
         </Styles.BodyContainer>

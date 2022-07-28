@@ -43,7 +43,8 @@ const Onboarding = (props) => {
             />
             {STEPID_COMPONENT_MAP[onboardingStep]({
                 setOnboardingStep,
-                setOnboardingData
+                setOnboardingData,
+                onboardingData
             })}
         </Container>
     )
