@@ -15,7 +15,7 @@ const OnboardingStep1 = (props) => {
     return (
         <Styles.BodyContainer>
             <Success />
-            <Styles.Heading>Congratulations, {props.onboardingData.displayName}!</Styles.Heading>
+            <Styles.Heading>Congratulations, {props.onboardingData.displayName || "Eren"}!</Styles.Heading>
             <Styles.SubHeading>You have completed onboarding, you can start using Eden</Styles.SubHeading>
             
             <Button onClick={() => props.setOnboardingStep(4)}>
